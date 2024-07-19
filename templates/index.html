@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizNet - Connecting Businesses</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">BizNet</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/database">Database</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/membership">Membership</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4 text-center"> <!-- Add text-center class to center-align content -->
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to BizNet</h1>
+            <p class="lead">Connecting businesses and entrepreneurs to foster collaboration and growth.</p>
+            <hr class="my-4">
+            <p>Explore our database, join our membership, and discover resources tailored for your business needs.</p>
+            <a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Potential Resources</h2>
+                <p>Find tools, insights, and connections that can help your business thrive.</p>
+                <ul>
+                    <li>Access to industry reports and trends</li>
+                    <li>Networking events and workshops</li>
+                    <li>Exclusive offers and partnerships</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h2>Our Mission</h2>
+                <p>To empower businesses through innovative solutions and collaborative opportunities.</p>
+                <p>Join us in building a strong community of entrepreneurs and experts.</p>
+            </div>
+        </div>
+
+        <!-- Ajax Example Section -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Ajax Example</h3>
+                        <p class="card-text">Click the button below to make an Ajax request.</p>
+                        <button id="ajax-button" class="btn btn-primary">Fetch Data via Ajax</button>
+                        <div id="ajax-result" class="mt-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and any other necessary scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Ajax Script -->
+    <script>
+        $(document).ready(function() {
+            $('#ajax-button').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST', // HTTP method for the request
+                    url: '/ajax-example', // Flask route for the Ajax request
+                    data: {}, // Optional data payload
+                    success: function(response) {
+                        $('#ajax-result').html('<p>' + response.message + '</p>'); // Update HTML element with response
+                    },
+                    error: function(error) {
+                        console.log(error); // Log errors to the console
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

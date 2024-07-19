@@ -1,0 +1,31 @@
+<!-- Example using an anchor tag -->
+<a href="#" onclick="confirmDelete('{{ item.id }}')">Delete</a>
+
+<script>
+function confirmDelete(id) {
+    if (confirm('Are you sure you want to delete this record?')) {
+        fetch(`/delete/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            // Optionally, add CSRF token if using Flask-WTF
+            // body: JSON.stringify({ csrf_token: '{{ csrf_token() }}' })
+        })
+        .then(response => {
+            if (response.ok) {
+                // Handle success, e.g., show success message
+                alert('Record deleted successfully.');
+                location.reload(); // Refresh page or update UI as needed
+            } else {
+                // Handle failure
+                alert('Failed to delete record.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred.');
+        });
+    }
+}
+</script>

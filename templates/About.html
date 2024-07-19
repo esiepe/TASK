@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}About Us{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hidden-section {
+        display: none; /* Initially hide other sections */
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>About Us</h2>
+    
+    <!-- Section 1: About Us -->
+    <section id="section1">
+        <h3>Section 1: About Us</h3>
+        <p>Welcome to BizNet Central, your premier online platform designed to foster collaboration, innovation, and growth among entrepreneurs and small businesses. At BizNet, we believe in the power of community-driven initiatives and the potential of every business to thrive in today's interconnected world.</p>
+        <button class="btn btn-primary read-more-btn" data-target="section2">Read More</button>
+    </section>
+
+    <!-- Section 2: Project Description and Why We Chose This Project -->
+    <section id="section2" class="hidden-section">
+        <h3>Section 2: Project Description and Why We Chose This Project</h3>
+        <p>BizNet was born out of a passion for supporting the backbone of our economy—small businesses. We saw a need for a centralized hub where entrepreneurs can connect, share knowledge, and leverage each other's strengths to navigate the challenges of modern business. By creating BizNet, we aim to empower businesses of all sizes to reach their full potential through collaboration and resource-sharing.</p>
+        <button class="btn btn-primary read-more-btn" data-target="section3">Read More</button>
+    </section>
+
+    <!-- Section 3: Description of Technology Used for Your Site -->
+    <section id="section3" class="hidden-section">
+        <h3>Section 3: Description of Technology Used for Your Site</h3>
+        <p>BizNet utilizes cutting-edge technology to provide a seamless user experience. Our platform is built on robust frameworks like Flask for backend development and Bootstrap for responsive frontend design. We employ secure database management with SQLite and integrate AJAX for dynamic content updates, ensuring that BizNet remains efficient and user-friendly.</p>
+        <button class="btn btn-primary read-more-btn" data-target="section4">Read More</button>
+    </section>
+
+    <!-- Section 4: What Have You Learned in This Class -->
+    <section id="section4" class="hidden-section">
+        <h3>Section 4: What Have You Learned in This Class</h3>
+        <p>Throughout this class, we've gained invaluable insights into web development practices and technologies. From frontend to backend, we've explored the nuances of creating interactive and responsive web applications. We've learned how to leverage frameworks and libraries effectively, ensuring that our projects meet modern standards of usability and performance.</p>
+        <button class="btn btn-primary read-more-btn" data-target="section5">Read More</button>
+    </section>
+
+   <!-- Section 5: Documentation -->
+<section id="section5" class="hidden-section">
+    <h3>Section 5: Documentation</h3>
+    <p>Our documentation provides a comprehensive overview of BizNet's development journey, outlining key features and technologies implemented to enhance user experience and functionality.</p>
+    <p>Below is a brief overview of the features implemented:</p>
+    <ul>
+        <li>Database Usage: Integration of SQLite for managing user data and application resources.</li>
+        <li>AJAX Usage: Dynamic content updates for seamless user interaction.</li>
+        <li>Theme: Consistent visual identity across all pages to ensure a unified user experience.</li>
+        <li>Javascript Usage: Implementation of custom scripts for interactive elements and dynamic functionality.</li>
+        <li>Membership Area: Secure login system allowing access to exclusive content for registered users.</li>
+    </ul>
+    <p>For those interested in exploring further details, you can download the full Documentation for this website <a href="/path/to/your/documentation.pdf" target="_blank">here</a>.</p>
+</section>
+
+    
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const readMoreBtns = document.querySelectorAll(".read-more-btn");
+
+        readMoreBtns.forEach(btn => {
+            btn.addEventListener("click", function() {
+                const targetId = btn.getAttribute("data-target");
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.toggle("hidden-section");
+                    btn.textContent = targetSection.classList.contains("hidden-section") ? "Read More" : "Read Less";
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

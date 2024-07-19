@@ -1,0 +1,254 @@
+/* styles.css */
+
+/* Body styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: url('bimg.jpg'); /* Global background image */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #9ec5ec; /* Example text color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Wrapper styles */
+.wrapper {
+  width: 50%;
+  max-width: 350px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center align horizontally */
+  background-color: rgba(56, 45, 45, 0.9); /* Example background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Center align text */
+}
+
+/* Register form wrapper styles */
+.register-wrapper {
+  width: 50%;
+  max-width: 350px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center align horizontally */
+  background-color: rgba(255, 255, 255, 0.8); /* Example background color with transparency */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Center align text */
+}
+
+.register-wrapper form {
+  max-width: 350px; /* Example maximum width for the form */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.register-wrapper form .form-group {
+  margin-bottom: 1rem; /* Example margin between form groups */
+}
+
+/* Widget box styles */
+.widget-box {
+  background-color: purple;
+  color: rgb(65, 105, 225);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center align text */
+  font-family: 'Poppins', sans-serif; /* Font family */
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: gold; /* Navbar background color */
+}
+
+.navbar-brand {
+  font-size: 1rem;
+  font-weight: bold;
+  color: silver; /* Text color for navbar brand */
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px;
+}
+
+/* Jumbotron styles */
+.jumbotron {
+  background-color: #ffffff; /* Jumbotron background color */
+  padding: 3rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.jumbotron h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.jumbotron p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.jumbotron .btn-primary {
+  background-color: #007bff; /* Button background color */
+  border-color: #007bff; /* Button border color */
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+}
+
+.jumbotron .btn-primary:hover {
+  background-color: #0056b3; /* Hover state button background color */
+  border-color: #0056b3; /* Hover state button border color */
+}
+
+/* Column styles */
+.col-md-6 {
+  padding: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .jumbotron h1 {
+    font-size: 2.5rem;
+  }
+
+  .jumbotron p {
+    font-size: 1rem;
+  }
+
+  .jumbotron .btn-primary {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Widget container and widget styles */
+.widget-container {
+  display: flex;
+  justify-content: center; /* Center the widgets horizontally */
+  gap: 20px; /* Space between widgets */
+  margin: 20px 0; /* Adjust margin as needed */
+}
+
+.widget {
+  width: calc(50% - 10px); /* Adjust width as needed */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Background color */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.widget h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.widget-content {
+  max-height: 200px; /* Adjust max-height to control visible content */
+  overflow-y: auto;
+}
+
+.widget-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.widget-footer button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.page-indicator {
+  font-weight: bold;
+}
+
+/* Additional styles for "Read More" functionality */
+.details-hidden {
+  display: none;
+}
+
+.details-visible {
+  display: block;
+}
+
+/* Responsive styles for widgets */
+@media (max-width: 768px) {
+  .widget-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .widget {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+/* Additional styles for "Contact Us" page */
+
+.contact-us-wrapper {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* Example background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Center align text */
+  margin-top: 2rem;
+}
+
+.contact-us-wrapper h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-us-wrapper p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-us-form {
+  max-width: 600px; /* Adjust max-width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.contact-us-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-us-form input, .contact-us-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contact-us-form textarea {
+  resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+.contact-us-form button {
+  background-color: purple;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contact-us-form button:hover {
+  background-color: darkpurple;
+}

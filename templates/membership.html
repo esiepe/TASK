@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizNet Membership</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to your custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Navbar content -->
+    </nav>
+
+    <div class="container mt-4">
+        <h2>BizNet Membership</h2>
+
+        <!-- Membership Tiers Widget -->
+        <div class="widget-container">
+            <div class="widget" onclick="toggleWidget(this)">
+                <h3>Membership Tiers</h3>
+                <ul class="widget-content details-hidden">
+                    <li><strong>Tier 1:</strong> Basic Membership - Access to forums and basic resources.</li>
+                    <li><strong>Tier 2:</strong> Premium Membership - Exclusive content, webinars, and priority support.</li>
+                    <li><strong>Tier 3:</strong> VIP Membership - All features of Premium plus personalized business consultations.</li>
+                </ul>
+                <div class="widget-footer">
+                    <button class="btn btn-primary" onclick="showAllDetails(event)">Read More</button>
+                    <span class="page-indicator">1 of 1</span>
+                </div>
+            </div>
+
+            <!-- Joining Widget -->
+            <div class="widget" onclick="toggleWidget(this)">
+                <h3>How to Join</h3>
+                <ol class="widget-content details-hidden">
+                    <li>Click on the 'Join Now' button below.</li>
+                    <li>Fill out the membership form with your details.</li>
+                    <li>Select your preferred membership tier.</li>
+                    <li>Complete the payment process.</li>
+                    <li>Start enjoying the benefits of BizNet Membership!</li>
+                </ol>
+                <div class="widget-footer">
+                    <button class="btn btn-primary" onclick="window.location.href='/join'">Join Now</button>
+                    <button class="btn btn-secondary" onclick="showAllDetails(event)">Read More</button>
+                    <span class="page-indicator">1 of 1</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Widget -->
+        <div class="widget-container">
+            <div class="widget" onclick="toggleWidget(this)">
+                <h3>Testimonials</h3>
+                <div class="widget-content details-hidden">
+                    <blockquote>
+                        "Joining BizNet has been a game-changer for my business. The networking opportunities alone have paid off tenfold!"<br>
+                        <em>John Doe, CEO at Example Co.</em>
+                    </blockquote>
+                </div>
+                <div class="widget-footer">
+                    <button class="btn btn-secondary" onclick="showAllDetails(event)">Read More</button>
+                    <span class="page-indicator">1 of 1</span>
+                </div>
+            </div>
+
+            <!-- FAQs Widget -->
+            <div class="widget" onclick="toggleWidget(this)">
+                <h3>FAQs</h3>
+                <div class="widget-content details-hidden">
+                    <details>
+                        <summary>What are the benefits of joining BizNet?</summary>
+                        <p>As a BizNet member, you gain access to exclusive articles and guides, networking events and workshops, and discounts on partner services.</p>
+                    </details>
+                    <details>
+                        <summary>Can I upgrade my membership tier later?</summary>
+                        <p>Yes, you can upgrade your membership tier at any time by contacting our support team.</p>
+                    </details>
+                </div>
+                <div class="widget-footer">
+                    <button class="btn btn-secondary" onclick="showAllDetails(event)">Read More</button>
+                    <span class="page-indicator">1 of 1</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Include Bootstrap JS and any other scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        function toggleWidget(widget) {
+            const content = widget.querySelector('.widget-content');
+            if (content.classList.contains('details-hidden')) {
+                content.classList.remove('details-hidden');
+                content.classList.add('details-visible');
+            } else {
+                content.classList.remove('details-visible');
+                content.classList.add('details-hidden');
+            }
+        }
+
+        function showAllDetails(event) {
+            event.stopPropagation(); // Prevent triggering the parent widget click
+            const button = event.target;
+            const content = button.closest('.widget').querySelector('.widget-content');
+            content.classList.remove('details-hidden');
+            content.classList.add('details-visible');
+        }
+    </script>
+</body>
+</html>
